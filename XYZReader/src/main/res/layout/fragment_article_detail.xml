@@ -96,5 +96,16 @@
         android:src="@drawable/ic_share"
         android:elevation="@dimen/fab_elevation"
         android:contentDescription="@string/action_share" />
+    <android.support.design.widget.FloatingActionButton
+        style="@style/Wrapboth"
+        android:layout_margin="16dp"
+        android:src="@drawable/add_fab_background"
+        app:fabSize="normal"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:layout_anchor="@id/recyclerview"
+        app:borderWidth="0dp"
+        app:layout_anchorGravity="bottom|right|end"
+        />
 
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>

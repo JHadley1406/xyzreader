@@ -75,8 +75,7 @@ public class UpdaterService extends IntentService {
                 cpo.add(ContentProviderOperation.newInsert(dirUri).withValues(values).build());
             }
 
-            getContentResolver().applyBatch(Items
-                    Contract.CONTENT_AUTHORITY, cpo);
+            getContentResolver().applyBatch(ItemsContract.CONTENT_AUTHORITY, cpo);
 
         } catch (JSONException | RemoteException | OperationApplicationException e) {
             Log.e(TAG, "Error updating content.", e);

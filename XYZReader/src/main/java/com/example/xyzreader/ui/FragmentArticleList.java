@@ -1,7 +1,8 @@
 package com.example.xyzreader.ui;
 
-import android.app.Fragment;
-import android.app.LoaderManager;
+
+
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +10,13 @@ import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -34,11 +38,13 @@ import butterknife.ButterKnife;
 public class FragmentArticleList extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor>{
 
+    private static final String LOG_TAG = FragmentArticleList.class.getSimpleName();
+
     private boolean mIsRefreshing = false;
 
     @Bind(R.id.article_recycler_view)
     RecyclerView mRecyclerView;
-    @Bind(R.id.swipe_refresh_layout)
+    @Bind(R.id.article_swipe_refresh)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     public FragmentArticleList(){
@@ -55,6 +61,7 @@ public class FragmentArticleList extends Fragment implements
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState){
+        Log.i(LOG_TAG, "In Article List onCreateView");
         View rootView = inflater.inflate(R.layout.fragment_article_list, container, false);
         ButterKnife.bind(this, rootView);
         getLoaderManager().initLoader(0, null, this);
@@ -94,14 +101,20 @@ public class FragmentArticleList extends Fragment implements
         }
     };
 
+    /*
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+
+    }*/
+
+    @Override
+    public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return ArticleLoader.newAllArticlesInstance(getContext());
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        Adapter adapter = new Adapter(cursor);
+    public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor data) {
+        Adapter adapter = new Adapter(data);
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
         int columnCount = getResources().getInteger(R.integer.list_column_count);
@@ -110,12 +123,10 @@ public class FragmentArticleList extends Fragment implements
         mRecyclerView.setLayoutManager(sglm);
     }
 
-
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
         mRecyclerView.setAdapter(null);
     }
-
 
     private void refresh() {
         getContext().startService(new Intent(getContext(), UpdaterService.class));
@@ -140,6 +151,8 @@ public class FragmentArticleList extends Fragment implements
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
                     startActivity(new Intent(Intent.ACTION_VIEW,
                             ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
                 }

@@ -1,5 +1,6 @@
 package com.example.xyzreader.ui;
 
+
 import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,6 +9,8 @@ import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -52,6 +55,12 @@ public class ArticleListActivity extends AppCompatActivity /*implements
 
 
         final View toolbarContainerView = findViewById(R.id.toolbar_container);
+
+        FragmentArticleList fal = new FragmentArticleList();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.add(R.id.article_fragment, fal);
+        transaction.commit();
         /*
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 

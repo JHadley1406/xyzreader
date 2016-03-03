@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/apk/res-auto"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
+    style="@style/AppTheme.Fillboth"
     xmlns:app="http://schemas.android.com/tools"
     android:id="@+id/main_activity_coordinator">
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/article_fragment"/>
-
     <android.support.design.widget.AppBarLayout
+        style="@style/AppTheme"
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +13,7 @@
         android:elevation="8dp">
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:theme="@style/AppTheme"
             android:layout_marginLeft="@dimen/list_toolbar_side_margin"
             android:layout_marginRight="@dimen/list_toolbar_side_margin"
             android:layout_width="match_parent"
@@ -34,5 +29,8 @@
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
-
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/article_fragment"/>
 </android.support.design.widget.CoordinatorLayout>

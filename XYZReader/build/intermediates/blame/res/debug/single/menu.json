@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/josiahhadley/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/res/merged/debug/menu/main.xml",
-        "source": "/Users/josiahhadley/AndroidStudioProjects/xyzreader/XYZReader/src/main/res/menu/main.xml"
+        "merged": "G:\\Users\\josiahhadley\\AndroidStudioProjects\\xyzreader\\XYZReader\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "G:\\Users\\josiahhadley\\AndroidStudioProjects\\xyzreader\\XYZReader\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "G:\\Android_Stuff\\xyzreader\\XYZReader\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "G:\\Android_Stuff\\xyzreader\\XYZReader\\src\\main\\res\\menu\\main.xml"
     }
 ]

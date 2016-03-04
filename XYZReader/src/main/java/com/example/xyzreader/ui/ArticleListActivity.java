@@ -1,7 +1,5 @@
 package com.example.xyzreader.ui;
 
-
-import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -37,8 +36,8 @@ import com.example.xyzreader.data.UpdaterService;
  * touched, lead to a {@link ArticleDetailActivity} representing item details. On tablets, the
  * activity presents a grid of items as cards.
  */
-public class ArticleListActivity extends AppCompatActivity /*implements
-       LoaderManager.LoaderCallbacks<Cursor> */{
+public class ArticleListActivity extends AppCompatActivity implements
+       LoaderManager.LoaderCallbacks<Cursor> {
 
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -54,28 +53,22 @@ public class ArticleListActivity extends AppCompatActivity /*implements
         setSupportActionBar(mToolbar);
 
 
-        final View toolbarContainerView = findViewById(R.id.toolbar_container);
+        //final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
-        FragmentArticleList fal = new FragmentArticleList();
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.add(R.id.article_fragment, fal);
-        transaction.commit();
-        /*
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        getLoaderManager().initLoader(0, null, this);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.article_swipe_refresh);
+        mRecyclerView = (RecyclerView) findViewById(R.id.article_recycler_view);
+        getSupportLoaderManager().initLoader(0, null, this);
 
         if (savedInstanceState == null) {
             refresh();
-        }*/
+        }
     }
 
     private void refresh() {
         startService(new Intent(this, UpdaterService.class));
     }
-    /*
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -87,7 +80,7 @@ public class ArticleListActivity extends AppCompatActivity /*implements
     protected void onStop() {
         super.onStop();
         unregisterReceiver(mRefreshingReceiver);
-    }*/
+    }
 
 
     @Override
@@ -110,7 +103,7 @@ public class ArticleListActivity extends AppCompatActivity /*implements
     }
 
 
-    /*
+
     private boolean mIsRefreshing = false;
 
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
@@ -128,13 +121,13 @@ public class ArticleListActivity extends AppCompatActivity /*implements
     }
 
     @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return ArticleLoader.newAllArticlesInstance(this);
+    public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return ArticleLoader.newAllArticlesInstance(getApplicationContext());
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        Adapter adapter = new Adapter(cursor);
+    public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor data) {
+        Adapter adapter = new Adapter(data);
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
         int columnCount = getResources().getInteger(R.integer.list_column_count);
@@ -143,12 +136,10 @@ public class ArticleListActivity extends AppCompatActivity /*implements
         mRecyclerView.setLayoutManager(sglm);
     }
 
-
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
         mRecyclerView.setAdapter(null);
     }
-
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {
         private Cursor mCursor;
 
@@ -210,5 +201,5 @@ public class ArticleListActivity extends AppCompatActivity /*implements
             titleView = (TextView) view.findViewById(R.id.article_title);
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
         }
-    }*/
+    }
 }

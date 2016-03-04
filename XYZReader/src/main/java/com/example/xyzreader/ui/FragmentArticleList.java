@@ -35,6 +35,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Josiah Hadley on 3/1/2016.
  */
+/*
 public class FragmentArticleList extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -106,7 +107,7 @@ public class FragmentArticleList extends Fragment implements
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
 
     }*/
-
+/*
     @Override
     public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return ArticleLoader.newAllArticlesInstance(getContext());
@@ -198,4 +199,4 @@ public class FragmentArticleList extends Fragment implements
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
         }
     }
-}
+}*/

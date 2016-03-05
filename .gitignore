@@ -1,4 +1,5 @@
 .gradle
+/XYZReader/build
 /local.properties
 /.idea/workspace.xml
 /.idea

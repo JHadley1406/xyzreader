@@ -23,16 +23,29 @@
         <item name="colorAccent">@color/theme_accent</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
-
+    <style name="AppTheme.AppBar">
+        <item name="android:layout_marginLeft">@dimen/list_toolbar_side_margin</item>
+        <item name="android:layout_marginRight">@dimen/list_toolbar_side_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/abc_action_bar_default_height_material</item>
+        <item name="android:elevation">@dimen/app_bar_elevation</item>
+    </style>
+    <style name="AppTheme.CardView">
+        <item name="android:layout_margin">@dimen/card_view_margin</item>
+    </style>
     <style name="AppTheme.Wrapboth">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
     <style name="AppTheme.Fillboth">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="AppTheme.Wrapboth.Fab">
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+    </style>
     <!-- We're not using these, these are no good.
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
 

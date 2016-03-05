@@ -204,6 +204,7 @@
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="app_bar_elevation">4dp</dimen>
+    <dimen name="card_view_margin">4dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
@@ -305,6 +306,9 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="transition_name_image">transition:IMAGE</string>
+    <string name="transition_name_stub_title">transition:SUBTITLE</string>
+    <string name="transition_name_title">transition:TITLE</string>
     <string name="up">Up</string>
     <string name="welcome_xyz_reader">Welcome to XYZ Reader!</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -317,13 +321,27 @@
         <item name="colorAccent">@color/theme_accent</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
+    <style name="AppTheme.AppBar">
+        <item name="android:layout_marginLeft">@dimen/list_toolbar_side_margin</item>
+        <item name="android:layout_marginRight">@dimen/list_toolbar_side_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/abc_action_bar_default_height_material</item>
+        <item name="android:elevation">@dimen/app_bar_elevation</item>
+    </style>
+    <style name="AppTheme.CardView">
+        <item name="android:layout_margin">@dimen/card_view_margin</item>
+    </style>
     <style name="AppTheme.Fillboth">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
     <style name="AppTheme.Wrapboth">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="AppTheme.Wrapboth.Fab">
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>

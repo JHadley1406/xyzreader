@@ -1,5 +1,5 @@
 # xyzreader
-Project 5 for Udacit android nanodegree
+Project 5 for Udacity Android Nanodegree
 
 ##Origin
 This project was supplied by Udacity for their Android Nanodegree program.
